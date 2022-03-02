@@ -1,0 +1,8 @@
+
+* {
+    box-sizing: border-box;
+}
+
+.mybody {
+    background: url("../img/hihihi.jpg") top left/cover no-repeat;
+}
