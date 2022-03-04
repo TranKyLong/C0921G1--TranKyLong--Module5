@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ss2_typescript/thuc_hanh/kiem_tra_so_nguyen_to/wfda-typescript-is-prime" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ss2_typescript/thuc_hanh/promise/wfda-typescript-promise" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ss2_typescript/thuc_hanh/su_dung_bien" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ss2_typescript/thuc_hanh/tinh_tong_30_so_nguyen_to/wfda-typescript-control-flow-and-loop" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ss2_typescript/thuc_hanh/xay_dung_object_hinh_hoc/wfda-typescript-shape" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ss3_angular/thuc_hanh/show_pet_nfo/wfda-angular-show-pet-info" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ss3_angular/thuc_hanh/them_boostrap/wfda-angular-using-bootstrap" vcs="Git" />
+  </component>
+</project>

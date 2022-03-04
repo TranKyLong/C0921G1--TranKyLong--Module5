@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+
+.colorChange {
+  width: 120px;
+  height: 120px;
+  border: 2px solid darkviolet;
+  box-shadow: -2px -2px darkslategray;
+}

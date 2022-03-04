@@ -1,0 +1,184 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+  box-sizing: border-box;
+}
+
+.mybody {
+  min-height: 100vh;
+  width: 100%;
+
+  background: rgb(255, 106, 57);
+  background: linear-gradient(140deg, rgba(255, 106, 57, 1) 0%, rgba(255, 238, 194, 1) 22%, rgba(255, 102, 0, 1) 82%) top left/cover no-repeat;;
+}
+
+.mycard {
+
+  margin: 10px auto;
+}
+
+table td th {
+  padding: 20px;
+}
+
+table th {
+  background: orangered !important;
+  color: white;
+}
+
+table {
+  box-shadow: 0px 0px 15px;
+}
+
+button[type=submit] {
+  color: white !important;
+  background: orangered;
+  border: solid 1px transparent;
+  transition: color 800ms, background-color 800ms;
+}
+
+button[type=submit]:hover {
+  color: orangered !important;
+  background-color: white;
+  border: solid 1px transparent;
+  box-shadow: 0px 0px 5px orangered !important;
+}
+
+.form-control, .form-control-sm {
+  background: white !important;
+  margin: 0 5px;
+  border: solid 1px darkgrey !important;
+  box-shadow: 0px 0px 5px transparent !important;
+}
+
+.form-control:focus, .form-control-sm:focus {
+  outline: none !important;
+  margin: 0 5px;
+  border: solid 1px transparent !important;
+  box-shadow: 0px 0px 10px orangered !important;
+}
+
+
+select {
+  margin: 15px 0 !important;
+}
+
+.mytitle {
+
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white !important;
+  background: orangered;
+  height: 12%;
+  border-radius: 30px 30px 0px 0px;
+  padding: 15px;
+  box-shadow: 0px 3px 5px grey;
+  top: 143px;
+  width: 90%;
+  margin: auto;
+}
+
+.mytitle h1 {
+  color: white !important;
+}
+
+.list_title {
+  font-family: 'Cinzel Decorative', cursive;
+
+  margin: 20px auto;
+  text-align: center;
+}
+
+.list_title h1 {
+  color: orangered !important;
+}
+
+.my_content {
+  box-shadow: -2px 1px 10px rgba(0, 0, 0, 0.8);
+  /* margin-bottom: 40px; */
+  background: rgb(201, 201, 201);
+  background: linear-gradient(236deg, rgba(201, 201, 201, 0.9) 0%, rgba(255, 255, 255, 1) 59%, rgba(204, 204, 204, 0.9) 100%) top left/cover no-repeat;
+  padding: 80px 50px;
+  border-radius: 10px;
+  margin: 130px auto 40px auto;
+  width: 90%;
+}
+
+.msg {
+  color: red;
+  font-size: 20px;
+  width: fit-content;
+  /* padding: 0 25px; */
+  border-radius: 20px;
+}
+
+.myIcon {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.backGr {
+  background: orangered;
+}
+
+.margin-10-px {
+  color: red;
+}
+
+.dateError {
+  margin-left: 25%;
+}
+
+.buttonBg {
+  line-height: 19px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px !important;
+}
+
+.organtedbtn {
+  border-radius: 45px !important;
+}
+
+.organtedbtn, .buttonBg {
+  text-decoration: none;
+  border: solid 1px white;
+
+  background: orangered;
+  margin: 15px 0;
+  color: white !important;
+  padding: 10px;
+}
+
+
+.margin_10 {
+  margin: 15px 0;
+}
+
+.organtedbtn:hover, .buttonBg:hover {
+  border: solid 1px #393939;
+  background: darkorange;
+}
+
+.yelow_organe {
+  color: #ff9c19;
+}
+
+.red_purple {
+  color: #953553
+}
+
+.green_blue {
+  color: #007855
+}
+
+.the_name {
+  color: orangered;
+}
+
+.the_code {
+  color: #085e72;
+  font-style: italic;
+
+}

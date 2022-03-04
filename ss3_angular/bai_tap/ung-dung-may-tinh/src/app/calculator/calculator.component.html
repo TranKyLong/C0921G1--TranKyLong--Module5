@@ -1,0 +1,29 @@
+<div class="container"><h3 class="text-center">calculator</h3>
+  <div class="row mb-4">
+    <div class="col">
+      <div class="form-outline">
+        <label class="form-label" for="form3Example1">Nhập số đầu tiên</label>
+        <input type="number" [(ngModel)]="numb1" id="form3Example1" class="form-control"/>
+
+      </div>
+    </div>
+    <label for="pheptinh"> phép tính</label><select name="" id="pheptinh" class="form-control " [(ngModel)]="oprator"
+  >
+    <option selected disabled> Chọn phép tính</option>
+    <option value="+"> +</option>
+    <option value="-"> -</option>
+    <option value="*"> *</option>
+    <option value="/"> /</option>
+  </select>
+
+    <div class="col">
+      <div class="form-outline">
+        <label class="form-label" for="form3Example2">Nhập số thứ hai</label>
+        <input type="number" id="form3Example2" class="form-control" [(ngModel)]="numb2"/>
+
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary btn-block mb-4">Tính toán</button>
+  <h3 class="text-danger"> Kết quả: {{result}}</h3>
+</div>
