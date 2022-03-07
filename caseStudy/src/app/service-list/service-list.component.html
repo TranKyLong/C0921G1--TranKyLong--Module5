@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="container mt-2">
+
+      <div class="row">
+        <ul class="list-group list-group-horizontal" *ngFor="let service of serviceList">
+          <li class="col-md-3 col-sm-6 item">
+            <div class="card item-card card-block">
+              <img [src]="service.imgLink"
+                   alt="Photo of sunset">
+              <div class="card_des">
+                <h5 class="item-card-title mt-3 mb-3">{{service.serviceName}}</h5>
+                <div class="d-flex bd-highlight">
+                  <div class="p-2 flex-fill bd-highlight">
+                    <a href="#" type="button" class="btn btn-primary theButton"> Edit </a>
+                  </div>
+                  <div class="p-2 flex-fill bd-highlight">
+                    <a href="#" type="button" class="btn btn-danger theButton"> Delete </a>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </li>
+        </ul>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>

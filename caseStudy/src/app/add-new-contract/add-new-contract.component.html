@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="mytitle">
+    <h1> CREATE CONTRACT </h1>
+  </div>
+
+  <div class="my_content">
+
+    <form action="#" method="post" class="row">
+      <input type="hidden">
+
+      <div class="col-md-4 margin_10">
+        <label for="startDate" class="col-sm-2 col-form-label">Stardate</label>
+
+        <input type="date" class="datepicker_input form-control " id="startDate"  >
+
+        <!--                <div class="margin-10-px" th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"></div>-->
+      </div>
+      <div class="col-md-4 margin_10">
+        <label for="endDate" class="col-sm-2 col-form-label">Enddate</label>
+        <input type="date" class="datepicker_input form-control " id="endDate"  >
+      </div>
+
+      <div class="col-md-4 margin_10">
+        <label for="deposit" class="col-sm-2 col-form-label">Deposit</label>
+        <input type="number" class="form-control" id="deposit">
+
+      </div>
+
+      <div class="col-md-8 margin-10-px text-center">
+        <div ></div>
+      </div>
+      <div class="col-md-4  margin-10-px ">
+        <div ></div>
+      </div>
+      <br>
+      <div class="col-md-6 margin_10">
+        <span for="customerId" class="col-sm-2 col-form-label">Customer</span>
+        <select class="form-control" id="customerId">
+          <option value="-1" selected disabled>-SelectCustomer-</option>
+          <option > select customer </option>
+        </select>
+      </div>
+      <div class="col-md-6 margin_10">
+        <span for="Employee" class="col-sm-2 col-form-label">Employee</span>
+        <select class="form-control" id="Employee" >
+          <option value="-1" selected>-Select Employee--</option>
+          <option></option>
+        </select>
+      </div>
+      <div class="col-md-12 margin_10">
+        <span for="service" class="col-sm-2 col-form-label">Select Service</span>
+        <select class="form-control" id="service" >
+          <option value="-1" selected disabled>-Select service--</option>
+          <option ></option>
+        </select>
+      </div>
+
+      <div class="col-md-12 margin_10 ">
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

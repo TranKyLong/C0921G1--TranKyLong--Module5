@@ -1,0 +1,140 @@
+<div class="my_content">
+  <div class="list_title">
+    <h1> CUSTOMER LIST </h1>
+  </div>
+
+  <div class="row">
+    <div class="formfind">
+      <form action="#" method="get">
+
+        <label> Find by name
+          <input class="form-control-sm" type="text" name="findName">
+        </label>
+        <label> Find by customer code:
+          <input class="form-control-sm" type="text" name="findcode">
+        </label>
+        <label> find by Customertype
+          <select class="form-control-sm" name="customerType">
+            <option disabled selected> --CHOSE TYPE--</option>
+            <option>
+              customer type
+            </option>
+          </select>
+        </label>
+
+        <button class=" buttonBg" type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+      </form>
+    </div>
+  </div>
+  <p class="msg"></p>
+  <a type="button" class="organtedbtn" href="#"> Add new Customer</a>
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th> Birthday</th>
+      <th> Gender</th>
+      <th> Id Card</th>
+      <th> Contact</th>
+      <th> Type</th>
+      <th colspan="2"> Action</th>
+    </tr>
+    </thead>
+    <tr *ngFor="let cus of customerList">
+      <td>
+        <div class="the_name"><i class="fa-solid fa-circle-user myIcon"></i> <span
+        > {{cus.customerName}} </span></div>
+        <div class="the_code"><i class="fa-solid fa-barcode myIcon"></i> <span
+        > {{cus.customerCode}}</span></div>
+      </td>
+
+      <td>{{cus.customerGender}}</td>
+<!--      <td> Female</td>-->
+<!--      <td> Male</td>-->
+
+      <td></td>
+      <td>
+        <div class="yelow_organe"><i class="fa-solid fa-phone "></i> <span
+        >{{cus.customerPhone}} </span></div>
+        <div class="red_purple"><i class="fa-solid fa-envelope "></i> <span
+        > {{cus.customerEmail}}</span></div>
+        <div class="green_blue"><i class="fa-solid fa-location-dot "></i> <span
+        > {{cus.customerAdress}}</span></div>
+      </td>
+
+      <td></td>
+      <td>
+        <a class="btn btn-primary">
+          <i class="fa-solid fa-user-pen"></i>
+        </a>
+      </td>
+
+      <td> <!-- Button trigger modal -->
+        <button type="button" class="btn btn-danger"
+                data-bs-toggle="modal"
+        >
+          <i class="fa-solid fa-user-xmark"></i>
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" tabindex="-1"
+             aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">CONFIRM DELETE</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Confirm delete <span class="text-warning"></span> ?
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <a type="button" class="btn btn-danger text-decoration-none"
+                >Delete</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <footer>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-end">
+        <li class="page-item  ">
+          <a class="page-link"
+             tabindex="-1"
+             aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item disabled">
+          <a class="page-link " href="#" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item">
+          <div class="page-link ">
+            <span></span> of
+            <span></span>
+          </div>
+
+        </li>
+        <li class="page-item">
+          <a class="page-link  "
+
+             tabindex="-1"
+             aria-disabled="true">Next</a>
+        </li>
+        <li class="page-item disabled">
+          <a class="page-link  " href="#" tabindex="-1" aria-disabled="true">Next</a>
+        </li>
+      </ul>
+    </nav>
+  </footer>
+</div>
+
+
