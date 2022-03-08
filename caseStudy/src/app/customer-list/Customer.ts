@@ -1,3 +1,5 @@
+import {Contract} from '../contract-list/Contract';
+
 export class Customer {
   customerId: number;
   customerType: number;
@@ -9,10 +11,12 @@ export class Customer {
   customerPhone: string;
   customerEmail: string;
   customerAdress: string;
-  contractId: number;
+  contractId?: Contract;
 
   // tslint:disable-next-line:max-line-length
-  constructor(customerId: number, customerType: number, customerCode: string, customerName: string, customerBirthday: string, customerGender: number, customerIdCard: string, customerPhone: string, customerEmail: string, customerAdress: string, contractId: number) {
+
+
+  constructor(customerId: number, customerType: number, customerCode: string, customerName: string, customerBirthday: string, customerGender: number, customerIdCard: string, customerPhone: string, customerEmail: string, customerAdress: string, contractId?: Contract) {
     this.customerId = customerId;
     this.customerType = customerType;
     this.customerCode = customerCode;

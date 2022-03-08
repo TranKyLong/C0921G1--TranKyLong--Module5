@@ -9,6 +9,7 @@ import {AddNewContractComponent} from './add-new-contract/add-new-contract.compo
 import {ServiceListComponent} from './service-list/service-list.component';
 import {CustomerListComponent} from './customer-list/customer-list.component';
 import {FooterComponent} from './footer/footer.component';
+import {ContractListComponent} from './contract-list/contract-list.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {FooterComponent} from './footer/footer.component';
     AddNewContractComponent,
     ServiceListComponent,
     CustomerListComponent,
-    FooterComponent
+    FooterComponent,
+    ContractListComponent
   ],
   imports: [
     BrowserModule
