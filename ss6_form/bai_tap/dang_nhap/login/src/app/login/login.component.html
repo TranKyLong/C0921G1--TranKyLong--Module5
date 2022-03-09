@@ -26,8 +26,7 @@
         formControlName="pass"
         name="pass"
         type="password" class="form-control" id="Password">
-      <!--        <div *ngIf="myForm.get('pwGroup').get('pass').hasError('minlength')">-->
-      <!--          <p class="text-danger"> Password min length is 6</p>-->
+
       <div *ngIf="!pass.valid && (pass.dirty )">
         <div [hidden]="!pass.hasError('minlength')">
           <p class="text-danger"> Password min length is 6</p>
@@ -37,78 +36,8 @@
         </div>
       </div>
     </div>
-    <div class="mb-3">
-      <label for="confirmPass" class="form-label">Confirm Password</label>
-      <input
-        formControlName="confirmPass"
-        name="confirmPass"
-        type="password" class="form-control" id="confirmPass">
-      <div *ngIf="!confirmPass.valid && (confirmPass.dirty )">
-        <div [hidden]="!confirmPass.errors.required">
-          <p class="text-danger"> Confirm Password is required</p>
-        </div>
-      </div>
-
-      <div [hidden]="!myForm.controls.pwGroup.hasError('passWordNotMatch')">
-        <p class="text-danger"> Password do not match</p>
-      </div>
-    </div>
-
-    <div class="mb-3">
-      <label for="Country" class="form-label">Country</label>
-      <select
-        formControlName="country"
-        name="country"
-        class="form-control" id="Country">
-        <option [ngValue]="c.id" *ngFor="let c of countryList"> {{c.name}}</option>
-      </select>
-    </div>
-    <div class="mb-3">
-      <label for="age" class="form-label">Age</label>
-      <input
-        formControlName="age"
-        name="age"
-        type="date" class="form-control" id="age">
-      <div *ngIf="!age.valid && (age.dirty )">
-        <div [hidden]="!age.hasError('check18')">
-          <p class="text-danger"> Age must be greater than 18</p>
-        </div>
-      </div>
-    </div>
-    <div class="mb-3">
-      <span> Gender</span>
-      <div>
-        <input
-          formControlName="gender"
-          name="gender"
-          type="radio" id="gender" value="0">
-        <label for="gender">Female</label><br>
-
-        <input
-          formControlName="gender"
-          name="gender"
-          type="radio" id="gender2" value="1">
-        <label for="gender2">Male</label><br>
-
-      </div>
-    </div>
-    <div class="mb-3">
-      <label for="phone" class="form-label">Phone</label>
-      <input
-        formControlName="phone"
-        name="phone"
-        type="number" class="form-control" id="phone">
-      <div *ngIf="!phone.valid && (phone.dirty)">
-        <div [hidden]="!phone.errors.pattern">
-          <p class="text-danger"> Wrong Phone number format</p>
-        </div>
-        <div [hidden]="!phone.errors.required">
-          <p class="text-danger"> Phone number is required</p>
-        </div>
-      </div>
-    </div>
     <button type="submit"
-
+            [disabled]="!myForm.valid"
             class="btn btn-primary">Submit
     </button>
   </form>
