@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
 
 
 @Component({
@@ -16,15 +16,17 @@ export class FormDangKyComponent implements OnInit {
     {id: 5, name: 'Hạ Long'}
   ];
   myForm = new FormGroup({
-      email: new FormControl(),
-      pass: new FormControl(),
-      country: new FormControl(),
-      age: new FormControl(),
-      gender: new FormControl(),
-      phone: new FormControl()
-    }
-  )
-  ;
+      email: new FormControl('', [Validators.required, Validators.pattern('^[A-Za-z0-9._]+[@][A-Za-z0-9._]+[.][A-Za-z0-9._]+$')]),
+      pwGroup: new FormGroup({
+        pass: new FormControl('', [Validators.required, Validators.minLength(6)]),
+        confirmPass: new FormControl('', [Validators.required])
+      }, this.comparePassword),
+      country: new FormControl('', [Validators.required]),
+      age: new FormControl('', [Validators.required,this.checkAge18]),
+      gender: new FormControl('', [Validators.required]),
+      phone: new FormControl('', [Validators.required, Validators.pattern('^(84)\\d{9,10}$')])
+    },
+  );
 
   constructor() {
   }
@@ -34,6 +36,38 @@ export class FormDangKyComponent implements OnInit {
     void {
   }
 
+  comparePassword(c: AbstractControl) {
+    const v = c.value;
+    return (v.pass === v.confirmPass) ?
+      null : {passWordNotMatch: true};
+  }
+
+  checkAge18(age: AbstractControl): any {
+    const yearRegister = Number(age.value.substr(0, 4));
+    const yearCurrent = new Date().getFullYear();
+    return yearCurrent - yearRegister > 18 ? null : {check18: true}
+  }
+
+  get email() {
+    return this.myForm.get('email');
+  }
+
+  get pass() {
+    return this.myForm.get('pwGroup').get('pass');
+  }
+
+  get confirmPass() {
+    return this.myForm.get('pwGroup').get('confirmPass');
+  }
+
+  // this.myForm['controls'].child['controls'].id.valid
+  get age() {
+    return this.myForm.get('age');
+  }
+
+  get phone() {
+    return this.myForm.get('phone');
+  }
 
   onSubmit() {
     console.log(this.myForm.value);

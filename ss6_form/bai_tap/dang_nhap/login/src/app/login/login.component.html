@@ -19,41 +19,41 @@
         </div>
       </div>
     </div>
-    <fieldset formGroupName="pwGroup">
-      <div class="mb-3">
-        <label for="Password" class="form-label">Password</label>
-        <input
-          formControlName="pass"
-          name="pass"
-          type="password" class="form-control" id="Password">
-        <!--        <div *ngIf="myForm.get('pwGroup').get('pass').hasError('minlength')">-->
-        <!--          <p class="text-danger"> Password min length is 6</p>-->
-        <div *ngIf="!pass.valid && (pass.dirty )">
-          <div [hidden]="!pass.hasError('minlength')">
-            <p class="text-danger"> Password min length is 6</p>
-          </div>
-          <div [hidden]="!pass.errors.required">
-            <p class="text-danger"> Password is required</p>
-          </div>
-        </div>
-      </div>
-      <div class="mb-3">
-        <label for="confirmPass" class="form-label">Confirm Password</label>
-        <input
-          formControlName="confirmPass"
-          name="confirmPass"
-          type="password" class="form-control" id="confirmPass">
-        <div *ngIf="!confirmPass.valid && (confirmPass.dirty )">
-          <div [hidden]="!confirmPass.errors.required">
-            <p class="text-danger"> Confirm Password is required</p>
-          </div>
-        </div>
 
-        <div [hidden]="!myForm.controls.pwGroup.hasError('passWordNotMatch')">
-          <p class="text-danger"> Password do not match</p>
+    <div class="mb-3">
+      <label for="Password" class="form-label">Password</label>
+      <input
+        formControlName="pass"
+        name="pass"
+        type="password" class="form-control" id="Password">
+      <!--        <div *ngIf="myForm.get('pwGroup').get('pass').hasError('minlength')">-->
+      <!--          <p class="text-danger"> Password min length is 6</p>-->
+      <div *ngIf="!pass.valid && (pass.dirty )">
+        <div [hidden]="!pass.hasError('minlength')">
+          <p class="text-danger"> Password min length is 6</p>
+        </div>
+        <div [hidden]="!pass.errors.required">
+          <p class="text-danger"> Password is required</p>
         </div>
       </div>
-    </fieldset>
+    </div>
+    <div class="mb-3">
+      <label for="confirmPass" class="form-label">Confirm Password</label>
+      <input
+        formControlName="confirmPass"
+        name="confirmPass"
+        type="password" class="form-control" id="confirmPass">
+      <div *ngIf="!confirmPass.valid && (confirmPass.dirty )">
+        <div [hidden]="!confirmPass.errors.required">
+          <p class="text-danger"> Confirm Password is required</p>
+        </div>
+      </div>
+
+      <div [hidden]="!myForm.controls.pwGroup.hasError('passWordNotMatch')">
+        <p class="text-danger"> Password do not match</p>
+      </div>
+    </div>
+
     <div class="mb-3">
       <label for="Country" class="form-label">Country</label>
       <select
