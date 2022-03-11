@@ -7,24 +7,29 @@ import {AddNewCustomerComponent} from './add-new-customer/add-new-customer.compo
 import {AddNewServiceComponent} from './add-new-service/add-new-service.component';
 import {AddNewContractComponent} from './add-new-contract/add-new-contract.component';
 import {ServiceListComponent} from './service-list/service-list.component';
-import {CustomerListComponent} from './customer-list/customer-list.component';
+// import {CustomerListComponent} from './customer-list/customer-list.component';
 import {FooterComponent} from './footer/footer.component';
-import {ContractListComponent} from './contract-list/contract-list.component';
+import {Router, RouterModule} from '@angular/router';
+import {EditServiceComponent} from './edit-service/edit-service.component';
+// import {ContractListComponent} from './contract-list/contract-list.component';
+
 
 @NgModule({
   declarations: [
+    EditServiceComponent,
     AppComponent,
     HeaderComponent,
     AddNewCustomerComponent,
     AddNewServiceComponent,
     AddNewContractComponent,
     ServiceListComponent,
-    CustomerListComponent,
+    // CustomerListComponent,
     FooterComponent,
-    ContractListComponent
+    // ContractListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

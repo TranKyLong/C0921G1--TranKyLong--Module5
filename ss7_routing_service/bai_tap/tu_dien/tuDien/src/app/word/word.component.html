@@ -1,0 +1,12 @@
+<div>
+  <table border="1">
+    <tr >
+      <th> Word</th>
+      <th> view meaning</th>
+    </tr>
+    <tr *ngFor="let w of wordList">
+      <td> {{w.word}}</td>
+      <td><a routerLink="/word/meaning/{{w.id}}">meaning</a></td>
+    </tr>
+  </table>
+</div>

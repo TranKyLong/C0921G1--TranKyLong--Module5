@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {FacilityService} from '../module/facility.service';
+import {FuramaService} from '../service-list/FuramaService';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-edit-service',
@@ -7,7 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditServiceComponent implements OnInit {
 
-  constructor() { }
+  furamaService: FuramaService;
+
+  serviceForm = new FormGroup({
+    id: new FormControl(''),
+    name: new FormControl(''),
+    price: new FormControl(''),
+    description: new FormControl(''),
+
+  },);
+
+  constructor(private facility: FacilityService,
+              private activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
   }

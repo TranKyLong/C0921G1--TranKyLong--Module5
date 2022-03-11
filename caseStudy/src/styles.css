@@ -12,9 +12,34 @@ body {
   background: linear-gradient(140deg, rgba(255, 106, 57, 1) 0%, rgba(255, 238, 194, 1) 22%, rgba(255, 102, 0, 1) 82%) top left/cover no-repeat;;
 }
 
-.mycard {
+.headerBg a {
+  color: white !important;
+  font-size: 18px;
+  text-decoration: none !important;
+  border: solid 1px transparent;
+  padding: 8px;
+  border-radius: 30px;
+  transition: border 480ms;
+}
+
+.headerBg a:hover{
+  border: solid 1px white;
+}
+
+.headerBg {
+
+  background: orangered;
+  border-bottom: 2px solid white;
+}
+
+.mycard li {
 
   margin: 10px auto;
+}
+
+.card img {
+  height: fit-content !important;
+  width: 100%;
 }
 
 table td th {
@@ -183,41 +208,47 @@ select {
 
 }
 
-img{
-  height:150px;
-  width:100%;
+img {
+  height: 150px;
+  width: 100%;
 }
 
-.item{
-  padding-left:5px;
-  padding-right:5px;
+.item {
+  padding-left: 5px;
+  padding-right: 5px;
 }
-.item-card{
-  transition:0.5s;
-  cursor:pointer;
+
+.item-card {
+  transition: 0.5s;
+  cursor: pointer;
 }
-.item-card-title{
-  font-size:15px;
-  transition:1s;
-  cursor:pointer;
+
+.item-card-title {
+  font-size: 15px;
+  transition: 1s;
+  cursor: pointer;
 }
-.item-card-title i{
-  font-size:15px;
-  transition:1s;
-  cursor:pointer;
-  color:#ffa710
+
+.item-card-title i {
+  font-size: 15px;
+  transition: 1s;
+  cursor: pointer;
+  color: #ffa710
 }
-.card-title i:hover{
+
+.card-title i:hover {
   transform: scale(1.25) rotate(100deg);
-  color:#18d4ca;
+  color: #18d4ca;
 
 }
-.card:hover{
+
+.card:hover {
   transform: scale(1.05);
-  box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
 }
-.card-text{
-  height:80px;
+
+.card-text {
+  height: 80px;
 }
 
 .card::before, .card::after {
@@ -232,17 +263,20 @@ img{
   content: '';
   pointer-events: none;
 }
+
 .card::before {
   transform-origin: left top;
 }
+
 .card::after {
   transform-origin: right bottom;
 }
+
 .card:hover::before, .card:hover::after, .card:focus::before, .card:focus::after {
   transform: scale3d(1, 1, 1);
 }
 
-.card_des{
+.card_des {
   padding: 20px;
 }
 
@@ -250,6 +284,6 @@ ul {
   list-style-type: none !important;
 }
 
-.btn{
+.btn {
   width: 100% !important;
 }
