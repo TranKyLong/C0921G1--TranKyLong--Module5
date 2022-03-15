@@ -1,20 +1,61 @@
-// import {FuramaService} from '../service-list/FuramaService';
-// import {Contract} from '../contract-list/Contract.ts';
-//
-//
-// export class Contract {
-//
-//   public getContractList() {
-//     let contractList: Contract[];
-//     contractList = [
-//       (new Contract(1, '20-05-2021', '30-0-2022', 300, 500, 1, 1, 1, 1));
-//     (new Contract(2, '20-05-2021', '30-0-2022', 300, 500, 1, 1, 1, 1));
-//     (new Contract(13, '20-06-2021', '30-0-2022', 300, 500, 1, 1, 1, 1));
-//     (new Contract(14, '20-05-2021', '30-0-2022', 233, 500, 1, 1, 1, 1));
-//     (new Contract(15, '20-05-2021', '30-0-2022', 567, 500, 1, 1, 1, 1));
-//     (new Contract(16, '20-05-2021', '30-0-2022', 123, 500, 1, 1, 1, 1));
-//     (new Contract(17, '20-05-2021', '30-0-2022', 224, 500, 2, 1, 1, 1));
-//   ]
-//   }
-// }
-//
+import {Injectable, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {FuramaService} from '../model/FuramaService';
+import {Customer} from '../model/Customer';
+import {Contract} from '../model/Contract';
+import {FacilityService} from './facility.service';
+import {CustomerService} from './customer.service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ContractService implements OnInit {
+
+  contract: Contract = new Contract();
+  contractList: Contract[];
+  customerList: Customer[];
+  serviceList: FuramaService[];
+  contractCustomer: Customer;
+  contractFuramaService: FuramaService;
+  API_URL = 'http://localhost:3000/contractList';
+
+  constructor(private httpClient: HttpClient,
+              private facilityService: FacilityService,
+              private customerService: CustomerService) {
+  }
+
+  ngOnInit(): void {
+
+  }
+
+  getAllCustomer() {
+    this.customerService.getAll();
+  }
+
+  getAllService(){
+    this.facilityService.getAll();
+  }
+
+  getAllContract(): Observable<Contract[]> {
+    return this.httpClient.get<Contract[]>(this.API_URL);
+  }
+
+
+  createNew(contract: Contract) {
+    return this.httpClient.post<void>(this.API_URL, contract);
+  }
+
+  findById(id: number) {
+    return this.httpClient.get<Contract>(this.API_URL + '/' + id);
+  }
+
+  updateContract(contract: Contract) {
+    return this.httpClient.patch<void>(this.API_URL + '/' + contract.id, contract);
+  }
+
+  deleteContract(id: number): Observable<void> {
+
+    return this.httpClient.delete<void>(this.API_URL + '/' + id);
+  }
+}

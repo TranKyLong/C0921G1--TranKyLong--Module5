@@ -1,74 +1,129 @@
 <div class="container">
   <div class="mytitle">
-    <h1> CREATE CUSTOMER </h1>
+    <h1> EDIT CUSTOMER </h1>
   </div>
   <div class="my_content">
 
-    <form class="row" action="#" method="post">
+    <form class="row" [formGroup]="customerForm" (ngSubmit)="submit()">
       <input type="hidden">
       <div class="col-md-6 margin_10">
         <label for="customerCode" class="form-label">Code</label>
-        <input type="text" class="form-control" id="customerCode">
-
+        <input formControlName="customerCode" type="text" class="form-control" id="customerCode">
+        <div *ngIf="!customerCode.valid && (customerCode.dirty )">
+          <div [hidden]="!customerCode.errors.pattern">
+            <p class="text-danger"> Wrong code format </p>
+          </div>
+          <div [hidden]="!customerCode.errors.required">
+            <p class="text-danger"> This site must not be blank</p>
+          </div>
+        </div>
       </div>
 
       <div class="col-md-6 margin_10">
         <label for="customerName" class="form-label">Name</label>
-        <input type="text" class="form-control" id="customerName">
-
+        <input formControlName="customerName" type="text" class="form-control" id="customerName">
+        <div *ngIf="!customerName.valid && (customerName.dirty )">
+          <div [hidden]="!customerName.errors.pattern">
+            <p class="text-danger"> Wrong name format</p>
+          </div>
+          <div [hidden]="!customerName.errors.required">
+            <p class="text-danger"> This site must not be blank</p>
+          </div>
+        </div>
       </div>
 
       <div class="col-12 margin_10">
         <label for="customerBirthday" class="form-label">Birthday</label>
-        <input type="date" class="form-control" id="customerBirthday">
-
+        <input formControlName="customerBirthday" type="date" class="form-control" id="customerBirthday">
       </div>
 
       <div class="col-md-12 margin_10">
-        <div class=" form-label">Gender
-          <span>
-                 <input type="radio" value="0">
-                <input type="radio" value="1">
-                </span>
+        Gender
+        <div class="form-check form-check-inline">
+          <input formControlName="customerGender" value="1" class="form-check-input" type="radio"
+                 name="customerGender" id="inlineRadio1">
+          <label class="form-check-label" for="inlineRadio1">male</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input formControlName="customerGender" value="0" class="form-check-input" type="radio"
+                 name="customerGender" id="inlineRadio2">
+          <label class="form-check-label" for="inlineRadio2">female</label>
+        </div>
+        <div *ngIf="!customerGender.valid && (customerGender.dirty )">
+          <div [hidden]="!customerGender.errors.required">
+            <p class="text-danger"> This site must not be blank</p>
+          </div>
         </div>
       </div>
+
       <div class="col-md-12 margin_10">
         <label for="type">Select Type</label>
-        <select class="form-control" id="type">
-          <option> Diamond</option>
-          <option> Platinum</option>
-          <option> Gold</option>
-          <option> Silver</option>
+        <select formControlName="customerType" class="form-control" id="type">
+          <option *ngFor="let type of editCustomerType" [ngValue]="type"> {{type}} </option>
+
         </select>
+        <div *ngIf="!customerType.valid && (customerType.dirty )">
+
+          <div [hidden]="!customerType.errors.required">
+            <p class="text-danger"> This site must not be blank</p>
+          </div>
+        </div>
       </div>
-      <!--            <div class="row">-->
+
 
       <div class="col-md-6 margin_10 ">
         <label for="customerEmail" class="form-label">Email</label>
-        <input type="email" class="form-control" id="customerEmail">
-
+        <input formControlName="customerEmail" type="email" class="form-control" id="customerEmail">
+        <div *ngIf="!customerEmail.valid && (customerEmail.dirty )">
+          <div [hidden]="!customerEmail.errors.pattern">
+            <p class="text-danger"> Wrong email format</p>
+          </div>
+          <div [hidden]="!customerEmail.errors.required">
+            <p class="text-danger"> This site must not be blank</p>
+          </div>
+        </div>
       </div>
 
       <div class="col-md-6 margin_10 ">
         <label for="customerPhone" class="form-label">Phone</label>
-        <input type="text" class="form-control" id="customerPhone">
-
-        <!--                </div>-->
+        <input formControlName="customerPhone" type="text" class="form-control" id="customerPhone">
+        <div *ngIf="!customerPhone.valid && (customerPhone.dirty )">
+          <div [hidden]="!customerPhone.errors.pattern">
+            <p class="text-danger"> Wrong phone format</p>
+          </div>
+          <div [hidden]="!customerPhone.errors.required">
+            <p class="text-danger"> This site must not be blank</p>
+          </div>
+        </div>
       </div>
       <div class="col-md-12 margin_10 ">
         <label for="customerAdress" class="form-label">Adress</label>
-        <input type="text" class="form-control" id="customerAdress">
+        <input formControlName="customerAdress" type="text" class="form-control" id="customerAdress">
+        <div *ngIf="!customerAdress.valid && (customerAdress.dirty )">
+          <div [hidden]="!customerAdress.errors.required">
+            <p class="text-danger"> This site must not be blank</p>
+          </div>
+        </div>
       </div>
 
       <div class="col-md-12 margin_10 ">
         <label for="customerIdCard" class="form-label">Id Card</label>
-        <input type="text" class="form-control" id="customerIdCard">
-
+        <input formControlName="customerIdCard" type="text" class="form-control" id="customerIdCard">
+        <div *ngIf="!customerIdCard.valid && (customerIdCard.dirty )">
+          <div [hidden]="!customerIdCard.errors.pattern">
+            <p class="text-danger">Wrong Id card format</p>
+          </div>
+          <div [hidden]="!customerIdCard.errors.required">
+            <p class="text-danger"> This site must not be blank</p>
+          </div>
+        </div>
       </div>
 
       <div class="col-md-12 margin_10 ">
         <div class="text-center">
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button
+            type="submit" class="btn btn-primary">Submit
+          </button>
         </div>
       </div>
     </form>

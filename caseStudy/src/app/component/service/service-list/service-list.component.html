@@ -3,7 +3,8 @@
     <div class="container mt-2">
 
       <div class="row">
-        <ul class="mycard col-md-4 col-sm-6 col-12 item list-group list-group-horizontal" *ngFor="let service of serviceList">
+        <ul class="mycard col-md-4 col-sm-6 col-12 item list-group list-group-horizontal"
+            *ngFor="let service of serviceList | paginate: { itemsPerPage: 6, currentPage: p }">
           <li class="">
             <div class="card item-card card-block ">
               <img [src]="service.imgLink"
@@ -12,22 +13,77 @@
                 <h5 class="item-card-title mt-3 mb-3">{{service.serviceName}}</h5>
                 <div class="d-flex bd-highlight">
                   <div class="p-2 flex-fill bd-highlight">
-                    <a routerLink="/service/edit/{{service.serviceId}}" type="button" class="btn btn-primary theButton"> Edit </a>
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            (click)="findById(service.id,1)">
+                      View
+                    </button>
                   </div>
                   <div class="p-2 flex-fill bd-highlight">
-                    <a href="#" type="button" class="btn btn-danger theButton"> Delete </a>
+                    <a routerLink="/service/edit/{{service.id}}" type="button" class="btn btn-primary theButton">
+                      Edit </a>
+                  </div>
+                  <div class="p-2 flex-fill bd-highlight">
+
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            (click)="findById(service.id,0)">
+                      delete
+                    </button>
+                    <!--                    <a type="button" class="btn btn-danger theButton"> Delete </a>-->
                   </div>
                 </div>
-
-
               </div>
+
             </div>
           </li>
         </ul>
-
-
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </div>
-
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div  class="modal-title" id="exampleModalLabel">
+          <h5 *ngIf="modalType==1">View</h5>
+          <h5 *ngIf="modalType==0">Confirm delete</h5>
+        </div>
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <span *ngIf="modalType==0">  confirm delete this {{furamaServices.serviceName}} ? </span>
+        <div *ngIf="modalType==1">
+          <p><strong>Name: </strong> {{furamaServices.code}}</p>
+          <p><strong>Name: </strong> {{furamaServices.serviceName}}</p>
+          <p><strong>Area: </strong> {{furamaServices.usingArea}}</p>
+          <p><strong>Cost: </strong> {{furamaServices.serviceCost}}</p>
+          <p><strong>Max People: </strong> {{furamaServices.maxPeople}}</p>
+          <p><strong>rentTypeList: </strong> {{furamaServices.rentType}}</p>
+          <p><strong>roomStandar: </strong> {{furamaServices.roomStandar}}</p>
+          <p><strong>otherStandar: </strong> {{furamaServices.otherStandar}}</p>
+          <p><strong>poolArea: </strong> {{furamaServices.poolArea}}</p>
+          <p><strong>floorNumber: </strong> {{furamaServices.floorNumber}}</p>
+          <p><strong>freeService: </strong> {{furamaServices.freeService}}</p>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button *ngIf="modalType==0" type="button" class="btn btn-danger" data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                (click)="deleteService(furamaServices.id)">
+          delete
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"-->
+<!--        (click)="deleteService(service.id)">-->
+<!--  delete-->
+<!--</button>-->

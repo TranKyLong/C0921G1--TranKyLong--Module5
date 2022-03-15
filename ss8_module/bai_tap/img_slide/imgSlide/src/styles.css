@@ -1,0 +1,18 @@
+.myBtn{
+  margin: 30px;
+  background: green;
+  padding: 20px;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 1px 1px 20px transparent;
+}
+.myBtn:hover{
+  box-shadow: 1px 1px 20px green;
+  background: white;
+  color: green;
+}
+
+img{
+  width: 90%;
+  margin: 25px;
+}

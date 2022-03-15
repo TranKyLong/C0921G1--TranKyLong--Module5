@@ -1,0 +1,14 @@
+<div>
+  <div>
+    img page {{imgPage}}
+  </div>
+  <img *ngIf="imgPage ==1" src="../../../assets/anh1.jpg" alt="hinhAnh">
+  <img *ngIf="imgPage ==2" src="../../../assets/anh2.jpg" alt="hinhAnh">
+  <img *ngIf="imgPage ==3" src="../../../assets/anh3.jpg" alt="hinhAnh">
+</div>
+<div>
+  <a  type="button" class="myBtn" routerLink="/img/1" >1</a>
+  <a type="button" class="myBtn" routerLink="/img/2" >2</a>
+
+  <a type="button" class="myBtn" routerLink="/img/3" >3</a>
+</div>

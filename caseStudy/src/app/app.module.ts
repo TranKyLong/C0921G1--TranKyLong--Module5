@@ -13,7 +13,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ServiceListComponent} from './component/service/service-list/service-list.component';
 import {FuramaModuleModule} from './furama-module.module';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CustomerListComponent} from './component/customer/customer-list/customer-list.component';
 import {EditCustomerComponent} from './component/customer/edit-customer/edit-customer.component';
 import {EmployeeListComponent} from './component/employee/employee-list/employee-list.component';
@@ -21,7 +21,7 @@ import {EditEmployeeComponent} from './component/employee/edit-employee/edit-emp
 import {AddNewEmployeeComponent} from './component/employee/add-new-employee/add-new-employee.component';
 import {ContractListComponent} from './component/contract/contract-list/contract-list.component';
 import {ArletComponent} from './arlet/arlet.component';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [EditEmployeeComponent,
@@ -47,9 +47,10 @@ import {ArletComponent} from './arlet/arlet.component';
     FuramaModuleModule,
     NgbModule,
     HttpClientModule,
-    BrowserModule,
+    [BrowserModule, NgxPaginationModule],
     RouterModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

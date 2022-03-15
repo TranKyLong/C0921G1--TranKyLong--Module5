@@ -5,59 +5,92 @@
 
   <div class="my_content">
 
-    <form action="#" method="post" class="row">
-      <input type="hidden">
+    <form [formGroup]="contractForm" (ngSubmit)="submit()" class=" row">
+      <div *ngIf="cusId!= -1" class="col-md-12 margin_10">
+        <span for="customerId" class="col-sm-2 col-form-label">Customer</span>
+        <div><strong> Name: </strong> {{customer.customerName}}</div>
+        <div><strong> Code: </strong> {{customer.customerCode}}</div>
 
-      <div class="col-md-4 margin_10">
+      </div>
+
+      <div class="col-md-6 margin_10">
         <label for="startDate" class="col-sm-2 col-form-label">Stardate</label>
 
-        <input type="date" class="datepicker_input form-control " id="startDate"  >
-
-        <!--                <div class="margin-10-px" th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"></div>-->
+        <input formControlName="starDate" type="date" class="datepicker_input form-control " id="startDate">
+        <div *ngIf="!starDate.valid && (starDate.dirty )">
+          <div [hidden]="!starDate.errors.required">
+            <p class="text-danger"> This site must not be blank</p>
+          </div>
+        </div>
       </div>
-      <div class="col-md-4 margin_10">
+      <div class="col-md-6 margin_10">
         <label for="endDate" class="col-sm-2 col-form-label">Enddate</label>
-        <input type="date" class="datepicker_input form-control " id="endDate"  >
+        <input formControlName="endDate" type="date" class="datepicker_input form-control " id="endDate">
+        <div *ngIf="!endDate.valid && (endDate.dirty )">
+          <div [hidden]="!endDate.errors.required">
+            <p class="text-danger"> This site must not be blank</p>
+          </div>
+        </div>
       </div>
 
-      <div class="col-md-4 margin_10">
+      <div class="col-md-6 margin_10">
+        <label for="contractCode" class="col-sm-5 col-form-label">Contract Code</label>
+        <input formControlName="contractCode" type="number" class="form-control" id="contractCode">
+        <div *ngIf="!contractCode.valid && (contractCode.dirty )">
+          <div [hidden]="!contractCode.errors.required">
+            <p class="text-danger"> This site must not be blank</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-6 margin_10">
         <label for="deposit" class="col-sm-2 col-form-label">Deposit</label>
-        <input type="number" class="form-control" id="deposit">
-
+        <input formControlName="deposit" type="number" class="form-control" id="deposit">
+        <div *ngIf="!deposit.valid && (deposit.dirty )">
+          <div [hidden]="!deposit.errors.required">
+            <p class="text-danger"> This site must not be blank</p>
+          </div>
+          <div [hidden]="!deposit.hasError('checkNguyenDuong')">
+            <p class="text-danger"> Deposit must be greater than 0</p>
+          </div>
+        </div>
       </div>
 
-      <div class="col-md-8 margin-10-px text-center">
-        <div ></div>
-      </div>
-      <div class="col-md-4  margin-10-px ">
-        <div ></div>
-      </div>
       <br>
-      <div class="col-md-6 margin_10">
+      <div *ngIf="cusId== -1" class="col-md-12 margin_10">
         <span for="customerId" class="col-sm-2 col-form-label">Customer</span>
-        <select class="form-control" id="customerId">
-          <option value="-1" selected disabled>-SelectCustomer-</option>
-          <option > select customer </option>
+        <select formControlName="customerId" class="form-control" id="customerId">
+          <option *ngFor="let cus of customerList" [ngValue]="cus"> {{cus.customerName}}
+            --- {{cus.customerCode}} </option>
         </select>
+        <div *ngIf="!customerId.valid && (customerId.dirty )">
+          <div [hidden]="!customerId.errors.required">
+            <p class="text-danger"> This site must not be blank</p>
+          </div>
+
+        </div>
       </div>
-      <div class="col-md-6 margin_10">
-        <span for="Employee" class="col-sm-2 col-form-label">Employee</span>
-        <select class="form-control" id="Employee" >
-          <option value="-1" selected>-Select Employee--</option>
-          <option></option>
-        </select>
-      </div>
+
+
       <div class="col-md-12 margin_10">
         <span for="service" class="col-sm-2 col-form-label">Select Service</span>
-        <select class="form-control" id="service" >
-          <option value="-1" selected disabled>-Select service--</option>
-          <option ></option>
+        <select formControlName="serviceId" class="form-control" id="service">
+          <option *ngFor="let ser of serviceList" [ngValue]="ser"> {{ser.serviceName}} --- {{ser.code}} </option>
         </select>
+        <div *ngIf="!serviceId.valid && (serviceId.dirty )">
+          <div [hidden]="!serviceId.errors.required">
+            <p class="text-danger"> This site must not be blank</p>
+          </div>
+        </div>
       </div>
 
       <div class="col-md-12 margin_10 ">
         <div class="text-center">
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit"
+                  [disabled]="!contractForm.valid"
+                  class="btn btn-primary">Submit
+          </button>
         </div>
       </div>
     </form>

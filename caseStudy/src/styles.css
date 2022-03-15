@@ -12,19 +12,21 @@ body {
   background: linear-gradient(140deg, rgba(255, 106, 57, 1) 0%, rgba(255, 238, 194, 1) 22%, rgba(255, 102, 0, 1) 82%) top left/cover no-repeat;;
 }
 
-.headerBg a {
+.headerBg .menuHeader, .headerBg a {
   color: white !important;
   font-size: 18px;
   text-decoration: none !important;
   border: solid 1px transparent;
   padding: 8px;
-  border-radius: 30px;
   transition: border 480ms;
+  cursor: pointer;
 }
 
-.headerBg a:hover{
+
+.headerBg .menuHeader:hover, .headerBg a:hover {
   border: solid 1px white;
 }
+
 
 .headerBg {
 
@@ -284,6 +286,4 @@ ul {
   list-style-type: none !important;
 }
 
-.btn {
-  width: 100% !important;
-}
+
