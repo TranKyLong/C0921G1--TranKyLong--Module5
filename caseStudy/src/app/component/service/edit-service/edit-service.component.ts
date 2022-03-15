@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {FacilityService} from '../module/facility.service';
-import {FuramaService} from '../service-list/FuramaService';
+import {FuramaService} from '../../../model/FuramaService';
 import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({

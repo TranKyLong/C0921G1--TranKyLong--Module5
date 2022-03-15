@@ -1,4 +1,4 @@
-import {Contract} from '../contract-list/Contract';
+import {Contract} from '../../contract/contract-list/Contract';
 
 export class Customer {
   customerId: number;
