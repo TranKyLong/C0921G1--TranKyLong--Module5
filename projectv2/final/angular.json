@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "caseStudy": {
+    "final": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,11 +13,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/caseStudy",
+            "outputPath": "dist/final",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
@@ -25,12 +24,9 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -66,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "caseStudy:build"
+            "browserTarget": "final:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "caseStudy:build:production"
+              "browserTarget": "final:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "caseStudy:build"
+            "browserTarget": "final:build"
           }
         },
         "test": {
@@ -92,9 +88,12 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
           }
         },
         "lint": {
@@ -114,15 +113,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "caseStudy:serve"
+            "devServerTarget": "final:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "caseStudy:serve:production"
+              "devServerTarget": "final:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "caseStudy"
+  "defaultProject": "final"
 }

@@ -1,0 +1,88 @@
+<div class="myContent">
+
+  <form class="row" [formGroup]="loHangForm" (ngSubmit)="submit()">
+    <input type="hidden">
+    <div class="col-md-12 margin_10">
+      <label for="customerCode" class="form-label">Mã lô hàng</label>
+      <input formControlName="maLoHang" type="text" class="form-control" id="customerCode">
+      <div *ngIf="!maLoHang.valid && (maLoHang.dirty )">
+        <div [hidden]="!maLoHang.errors.pattern">
+          <p class="text-danger"> sai  format </p>
+        </div>
+        <div [hidden]="!maLoHang.errors.required">
+          <p class="text-danger"> Không được bỏ trống</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-12 margin_10">
+      <label for="type">Chọn sản phẩm</label>
+      <select formControlName="sanPham" class="form-control" id="type">
+        <option *ngFor="let sp of danhSachSanPham" [ngValue]="sp"> {{sp.ten}} </option>
+      </select>
+      <div *ngIf="!sanPham.valid && (sanPham.dirty )">
+        <div [hidden]="!sanPham.errors.required">
+          <p class="text-danger">Không được bỏ trống</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12 margin_10">
+      <label for="soLuong" class="form-label">Số lượng</label>
+      <input formControlName="soLuong" type="text" class="form-control" id="soLuong">
+      <div *ngIf="!soLuong.valid && (soLuong.dirty )">
+        <div [hidden]="!soLuong.errors.checkNguyenDuong">
+          <p class="text-danger"> Vui lòng nhập số nguyên dương </p>
+        </div>
+        <div [hidden]="!soLuong.errors.required">
+          <p class="text-danger"> Không được bỏ trống</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12 margin_10 ">
+      <label for="ngayNhap" class="form-label">Ngày Nhâp hàng</label>
+      <input formControlName="ngayNhap" type="date" class="form-control" id="ngayNhap">
+      <div *ngIf="!ngayNhap.valid && (ngayNhap.dirty )">
+
+        <div [hidden]="!ngayNhap.errors.required">
+          <p class="text-danger"> Không được bỏ trống</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12 margin_10 ">
+      <label for="ngaySanXuat" class="form-label">Ngày sản xuất</label>
+      <input formControlName="ngaySanXuat" type="date" class="form-control" id="ngaySanXuat">
+      <div *ngIf="!ngaySanXuat.valid && (ngaySanXuat.dirty )">
+
+        <div [hidden]="!ngaySanXuat.errors.required">
+          <p class="text-danger"> Không được bỏ trống</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12 margin_10 ">
+      <label for="ngayHetHan" class="form-label">Ngày hết hạn</label>
+      <input formControlName="ngayHetHan" type="date" class="form-control" id="ngayHetHan">
+      <div *ngIf="!ngayHetHan.valid && (ngayHetHan.dirty )">
+
+        <div [hidden]="!ngayHetHan.errors.required">
+          <p class="text-danger">Không được bỏ trống</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12 margin_10 ">
+      <div class="text-center">
+        <button
+          [disabled]="!loHangForm.valid"
+          type="submit" class="btn btn-primary">Nhập hàng
+        </button>
+        <a type="button" class="btn btn-secondary" routerLink=""> Quay lại</a>
+      </div>
+    </div>
+  </form>
+
+</div>

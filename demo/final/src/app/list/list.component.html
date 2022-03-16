@@ -1,0 +1,77 @@
+<div class="myContent">
+
+  <h3 class="text-primary text-center"> DANH SÁCH LÔ HÀNG</h3>
+  <div class="khungTimKiem row">
+    <input class="form-control timKiem col-md-4" type="search" placeholder="Tìm kiếm theo tên " aria-label="Search"
+           name="name"
+           [(ngModel)]="name"
+           (ngModelChange)="search()">
+
+    <input class="form-control timKiem col-md-4" type="search" placeholder="Tìm kiếm theo ngày hết hạn "
+           aria-label="Search" name="name"
+           [(ngModel)]="hetHan"
+           (ngModelChange)="searchNgayHethan()">
+
+    <input class="form-control timKiem col-md-4" type="search" placeholder="Tìm kiếm theo ngày nhập hàng"
+           aria-label="Search" name="name"
+           [(ngModel)]="nhapHang"
+           (ngModelChange)="searchNhapHang()">
+  </div>
+  <a class="btn btn-success" routerLink="nhaphang">
+    Nhập hàng
+  </a>
+
+  <table class="table table-hover">
+    <tr>
+      <th> MÃ LÔ HÀNG</th>
+      <th> TÊN SẢN PHẨM</th>
+      <th> GIÁ TIỀN</th>
+      <th> ĐƠN VỊ</th>
+      <th> SỐ LƯỢNG</th>
+      <th>NGÀY NHẬP HÀNG</th>
+      <th>NGÀY XUẤT HÀNG</th>
+      <th>NGÀY HẾT HẠN</th>
+      <th>Thao tác</th>
+
+    </tr>
+    <tr *ngFor="let lh of danhSachLoHang| paginate: { itemsPerPage: 2, currentPage: p }">
+      <td> {{lh.maLoHang}}</td>
+      <td> {{lh.sanPham.ten}}</td>
+      <td> {{lh.sanPham.giaTien}}</td>
+      <td> {{lh.sanPham.donVi}}</td>
+      <td> {{lh.soLuong}}</td>
+      <td> {{lh.ngayNhap}}</td>
+      <td> {{lh.ngaySanXuat}}</td>
+      <td> {{lh.ngayHetHan}}</td>
+      <td><span class="btn btn-secondary"> Sửa</span>
+        <span>
+        </span>
+        <button class="btn btn-danger" (click)="delete(lh.id)">Xóa</button>
+
+      </td>
+    </tr>
+  </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title" id="exampleModalLabel">
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+

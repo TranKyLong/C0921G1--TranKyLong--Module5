@@ -1,0 +1,72 @@
+{
+  "danhSachLoHang": [
+    {
+      "id": 903,
+      "maLoHang": "12323qwe",
+      "sanPham": {
+        "id": 983,
+        "ten": "But van phong",
+        "xuatXu": "Viet Nam",
+        "giaTien": 5000,
+        "donVi": "cây"
+      },
+      "soLuong": 5,
+      "ngayNhap": "2015-06-12",
+      "ngaySanXuat": "2016-10-12",
+      "ngayHetHan": "2017-06-12"
+    },
+    {
+      "id": 943,
+      "maLoHang": "12323qwe",
+      "sanPham": {
+        "id": 883,
+        "ten": "But van phong Thien Long",
+        "xuatXu": "Viet Nam",
+        "giaTien": 5000,
+        "donVi": "cây"
+      },
+      "soLuong": 5,
+      "ngayNhap": "2000-06-12",
+      "ngaySanXuat": "2000-10-12",
+      "ngayHetHan": "2003-06-12"
+    },
+    {
+      "id": 83,
+      "maLoHang": "12323qwe",
+      "sanPham": {
+        "id": 183,
+        "ten": "But van phong",
+        "xuatXu": "Viet Nam",
+        "giaTien": 5000,
+        "donVi": "cây"
+      },
+      "soLuong": 5,
+      "ngayNhap": "2000-06-12",
+      "ngaySanXuat": "2000-10-12",
+      "ngayHetHan": "2003-06-12"
+    }
+  ],
+  "danhSachSanPham": [
+    {
+      "id": 983,
+      "ten": "But van phong",
+      "xuatXu": "Viet Nam",
+      "giaTien": 5000,
+      "donVi": "cây"
+    },
+    {
+      "id": 883,
+      "ten": "But van phong",
+      "xuatXu": "Viet Nam",
+      "giaTien": 5000,
+      "donVi": "cây"
+    },
+    {
+      "id": 183,
+      "ten": "But van phong",
+      "xuatXu": "Viet Nam",
+      "giaTien": 5000,
+      "donVi": "cây"
+    }
+  ]
+}
